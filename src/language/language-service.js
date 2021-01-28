@@ -101,51 +101,9 @@ const LanguageService = {
       orderedArray.push(nextWord);
     }
 
+    console.log('ordered items: ', orderedArray)
     return orderedArray;
   },
-
-  // async getHeadWord(db, language_id) {
-  //   console.log('GET HEAD WORD RUNNING');
-  //   try {
-    
-  //   const words = await this.getLanguageWords(
-  //     db,
-  //     language_id,
-  //   )
-  //     console.log('THE WORDS ARE: ', words);
-      
-  //     // let nodeIds = {};
-  //     // let nextIds = {};
-      
-  //     // let totalScore = 0;
-
-  //     // words.forEach(word => {
-  //     //   totalScore += word.correct_count;
-  //     //   //if the current word isn't listed as another word's "next" add it to possible heads
-  //     //   if(!(nextIds[word.id])){
-  //     //      nodeIds[word.id] = word;
-  //     //   }
-  //     //   else if(nodeIds[word.id]){
-  //     //     delete nodeIds[word.id]
-  //     //   }
-          
-
-  //     //   //if the current word has a next and it's listed as a possible head, remove it from being a possible head
-  //     //   if((nodeIds[word.next])){
-  //     //     delete nodeIds[word.next]
-  //     //   }
-
-  //     //   nextIds[word.next] = { notHead: true }
-          
-  //     // })
-
-  //     // const headArray = Object.values(nodeIds);
-  //     return {head: headArray[0], total_score: totalScore };
-  //   }
-  //   catch (er) {
-  //     throw er
-  //   }
-  // },
 
   findNextWordIndex(words, id) {
     for(let i = 0; i < words.length; i++){
@@ -167,8 +125,6 @@ const LanguageService = {
 
       const isCorrect = guess === head.translation ? true : false;
       const oldHeadIndex = 0;
-
-
 
       let updateIndexes = [oldHeadIndex]
 
@@ -201,42 +157,6 @@ const LanguageService = {
       words[prevWordIndex].next = words[oldHeadIndex].id
       updateIndexes.push(prevWordIndex);
       
-      // // console.log('ordered words are::::: ', words);
-
-      //   if(shift >= words.length) {
-      //     const prevWord = orderedWords[orderedWords.length-1];
-      //     replacementWords[prevWord.id] = {
-      //       ...prevWord,
-      //       next: head.id
-      //     }
-      //     replacementWords[head.id] = {
-      //       ...replacementWords[head.id],
-      //       next: prevWord.next
-      //     }
-      //   }
-      //   else {
-      //     shift--;
-      //     let prevWordInd = 1;
-          
-      //     for(let i = 1; i< orderedWords.length; i++) {
-      //       if(shift === 0) {
-      //         const prevWord = orderedWords[prevWordInd];
-      //         replacementWords[prevWord.id] = {
-      //           ...prevWord,
-      //           next: head.id
-      //         }
-      //         replacementWords[head.id] = {
-      //           ...replacementWords[head.id],
-      //           next: prevWord.next
-      //         }
-      //         break;
-      //       } else {
-      //         prevWordInd++;
-      //         shift--;
-      //       }
-      //     }
-      //   }
-      
 
       console.log('ITEMS TO CHANGE: ', updateIndexes)
 
@@ -261,42 +181,6 @@ const LanguageService = {
             }
 
             return guessObj
-      
-      
-      // ).then(res => {
-
-      //       return this.getHeadWord(db, head.language_id)
-      //         .then(headInfo => {
-      //           console.log('WORDS ON 174: ', words)
-      //           console.log('HEAD ON 174: ', headInfo.head)
-
-
-      //           const orderedWords = this.orderArray(headInfo.head, words);
-      //           console.log(orderedWords);
-      //           return {hi: 'hi'}
-      //         })
-
-
-        // return this.getHeadWord(db, head.language_id)
-        //   .then(headInfo => {
-        //     const guessObj = {
-        //       nextWord: headInfo.head.original,
-        //       totalScore: headInfo.total_score,
-        //       isCorrect: correctGuess,
-        //       answer: head.translation,
-        //       wordCorrectCount: headInfo.head.correct_count,
-        //       wordIncorrectCount: headInfo.head.incorrect_count
-        //     }
-        //     return guessObj
-        //   })
-        //   .catch(er => {throw er})
-        
-      // })
-      // .catch(er => {
-      //   throw er
-      // })
-
-      
     }
     catch (er) {
       throw er

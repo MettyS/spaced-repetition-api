@@ -55,8 +55,8 @@ languageRouter
       req.language.id,
     )
 
-    const { head, total_score } = headInfo
-    res.json(LanguageService.serializeHead(head, total_score));
+    const { head, totalScore } = headInfo
+    res.json(LanguageService.serializeHead(head, totalScore));
     res.status(200);
     /*
     {
@@ -66,6 +66,7 @@ languageRouter
       "totalScore": 999
     }
     */
+   next()
   }
   catch(er) {
     console.log(er);
@@ -92,10 +93,11 @@ languageRouter
       res.json(resObj);
       res.status(200);
       // res.send('yay')
-
+      next()
     }
     catch (er) {
       console.log(er);
+      next(er)
     }
   })
 

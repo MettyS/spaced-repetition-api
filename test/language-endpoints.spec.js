@@ -1,7 +1,7 @@
 const app = require('../src/app')
 const helpers = require('./test-helpers')
 
-describe.only('Language Endpoints', function () {
+describe('Language Endpoints', function () {
   let db
 
   const testUsers = helpers.makeUsersArray()
@@ -62,7 +62,7 @@ describe.only('Language Endpoints', function () {
   /**
    * @description Get languages for a user
    **/
-  describe.skip(`GET /api/language`, () => {
+  describe(`GET /api/language`, () => {
     const [usersLanguage] = testLanguages.filter(
       lang => lang.user_id === testUser.id
     )
@@ -110,7 +110,7 @@ describe.only('Language Endpoints', function () {
   /**
    * @description Get head from language
    **/
-  describe.skip(`GET /api/language/head`, () => {
+  describe(`GET /api/language/head`, () => {
     const usersLanguage = testLanguages.find(l => l.user_id === testUser.id)
     const headWord = testWords.find(w => w.language_id === usersLanguage.id)
 
