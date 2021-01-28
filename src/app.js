@@ -20,6 +20,10 @@ app.use('/api/auth', authRouter)
 app.use('/api/language', languageRouter)
 app.use('/api/user', userRouter)
 
+app.get('/', (req, res) => {
+  res.send('Im awake');
+})
+
 app.use(errorHandler)
 
 module.exports = app
