@@ -1,6 +1,8 @@
 # Spaced repetition API!
-Live: https://stark-temple-43952.herokuapp.com/
 
+Client Deployment: https://spaced-repetition-ec4jwgy7k.vercel.app/login
+
+API Deployment: https://stark-temple-43952.herokuapp.com/
 
 ## Local dev setup
 
