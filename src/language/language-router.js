@@ -84,8 +84,6 @@ languageRouter
           error: `Missing 'guess' in request body`,
         })
       }
-
-      console.log('the guess is: ', guess);
       
       const resObj = await LanguageService.handleGuess(req.app.get('db'), req.language.id, guess)
       

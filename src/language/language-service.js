@@ -100,8 +100,6 @@ const LanguageService = {
 
       orderedArray.push(nextWord);
     }
-
-    console.log('ordered items: ', orderedArray)
     return orderedArray;
   },
 
@@ -121,7 +119,7 @@ const LanguageService = {
       let words = getWords.words
 
       let newTotalScore = totalScore;
-      console.log('WORDS ARE: ', words);
+
 
       const isCorrect = guess === head.translation ? true : false;
       const oldHeadIndex = 0;
